@@ -21,9 +21,9 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
-	<context:component-scan base-package="cafe.jj.dev" />
-	
-	<!-- 커넥션 툴 설정 -->
+	<context:component-scan base-package="kr.or.possys" />
+
+		<!-- 커넥션 툴 설정 -->
 	
 	    <beans:bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
         <beans:property name="driverClassName" value="com.mysql.jdbc.Driver"/>
@@ -32,7 +32,7 @@
         <beans:property name="password" value="java0000"/>
 	    </beans:bean>
 	    
-		<!-- mybatis 설정 1.sqlsessionfactory-->
+	    <!-- mybatis 설정 1.sqlsessionfactory-->
 	    <beans:bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 	    
         <!-- mybatis 세션생성시 사용할 dataSource주입 -->
@@ -42,19 +42,17 @@
         <beans:property name="mapperLocations">
         
             <beans:list>
-                <beans:value>classpath:cafe/jj/dev/service/BoardMapper.xml</beans:value>
+                <beans:value>classpath:kr/or/possys/TestMapper.xml</beans:value>
             </beans:list>
             
         </beans:property>
     	</beans:bean>
     	
-    	    <!-- mybatis를 사용하여 db에접속하여 쿼리를 보내는 주체인 SqlSessionTemplate빈 생성-->
+    	<!-- mybatis를 사용하여 db에접속하여 쿼리를 보내는 주체인 SqlSessionTemplate빈 생성-->
 	    <beans:bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
 	        <beans:constructor-arg index="0" ref="sqlSessionFactory" />
 	    </beans:bean>
-	
-
-	
-	<!-- mybatis 설정 2.sqlsessiontemplate -->
+	    
+	    
 	
 </beans:beans>
